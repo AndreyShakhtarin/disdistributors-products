@@ -1,0 +1,50 @@
+{% extends 'base.html.twig'%}
+{% block index%}
+<body class="size-1280">
+<header>
+    <div class="line">
+        <div class="box">
+            <div class="s-6 l-2">
+                <img src="{{ asset('bundles/appeducation/shop/img/logo.png') }}">
+            </div>
+            <div class="s-12 l-8 right">
+                <div class="margin">
+                    <form  class="customform s-12 l-8" method="get" action="http://google.com/">
+                        <div class="s-9"><input type="text" placeholder="Search form" title="Search form" /></div>
+                        <div class="s-3"><button type="submit">Search</button></div>
+                    </form>
+                    <div class="s-12 l-4">
+                        <p class="right">3 items / EUR 199</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- TOP NAV -->
+    <div class="line">
+        <nav>
+            <p class="nav-text">Main navigation</p>
+            {% include "AppEducationBundle:BasePage:navigation_menu.html.twig" %}
+        </nav>
+    </div>
+</header>
+<div class="text-center login-error">
+    <h3>
+        {% include "AppEducationBundle:Security:error.html.twig" %}
+    </h3>
+</div>
+<!-- ASIDE NAV AND CONTENT -->
+{% block body %}
+{% endblock %}
+{% block content %}
+{% endblock %}
+<!-- FOOTER -->
+<footer class="line">
+    <div class="s-12 l-6">
+        <p>Copyright 2016, Vision Design - graphic zoo</p>
+    </div>
+    <div class="s-12 l-6">
+        <a class="right" href="http://www.myresponsee.com" title="Responsee - lightweight responsive framework">Design and coding by Responsee Team</a>
+    </div>
+</footer>
+{% endblock %}

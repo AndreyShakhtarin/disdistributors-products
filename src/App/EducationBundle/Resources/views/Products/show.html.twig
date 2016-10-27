@@ -1,0 +1,61 @@
+{% extends 'AppEducationBundle:BasePage:base_page.html.twig'%}
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('bundles/appeducation/owl-carousel/assets/owl-carousel.css') }}" type="text/css" media="all" >
+    <link rel="stylesheet" href="{{ asset('bundles/appeducation/owl-carousel/assets/owl-theme.css') }}" type="text/css" media="all" >
+
+    <script type="text/javascript" src="{{ asset('bundles/appeducation/jquery/JQuery.js') }}"></script>
+    <script src="{{ asset('bundles/appeducation/owl-carousel/owl.carousel.js') }}"></script>
+{% endblock stylesheets%}
+{% block content %}
+<div class="line show_background">
+    <div class="box show_background_body">
+        <div class="margin2x">
+            <h1 class="center text-center glyphicon-text-color">Created product {{ product.product }}</h1>
+            <table>
+                <thead class="show_head_table">
+                <th class="red">Id</th>
+                <th>Product</th>
+                <th>Price</th>
+                <th>Company</th>
+                <th>Location</th>
+                <th>Short description</th>
+                <th>Description</th>
+                <th>Options</th>
+                </thead>
+                <tbody >
+                <tr class="show_body_table">
+                    <td >{{ product.id }}</td>
+                    <td>{{ product.product }}</td>
+                    <td>{{ product.price }}</td>
+                    <td>{{ product.company }}</td>
+                    <td>{{ product.location }}</td>
+                    <td>{{ product.shortdescription }}</td>
+                    <td>{{ product.description }}</td>
+                    <td >
+                        <a href="{{ path('products_edit', {'token': product.token}) }}">Edit</a>
+                        <hr class="show_body_table_hr">
+                        <a href="{{ path('product_remove') }}">Remove</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            {% include 'AppEducationBundle:Image:images.html.twig' %}
+            <ul class="show_back">
+                <li  class="show_back_text">
+                    <a href="{{ path('app_homepage') }}"> Back to Main</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+    <script>
+        $(document).ready(function() {
+            $("#owl-demo").owlCarousel({
+                items : 6,
+                lazyLoad : true,
+                navigation : true
+            });
+        });
+    </script>
+{% endblock %}

@@ -1,0 +1,486 @@
+<?php
+
+namespace App\EducationBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+/**
+ * Product
+ */
+class Product
+{
+    /**
+     * @var integer
+     */
+    private $id;
+
+    /**
+     * @var string
+     */
+    private $name;
+
+    /**
+     * @var string
+     */
+    private $product;
+
+    /**
+     * @var string
+     */
+    private $price;
+
+    /**
+     * @var string
+     */
+    private $description;
+
+    /**
+     * @var string
+     */
+    private $company;
+
+    /**
+     * @var string
+     */
+    private $logo;
+
+    /**
+     * @var string
+     */
+    private $url;
+
+    /**
+     * @var string
+     */
+    private $location;
+
+    /**
+     * @var string
+     */
+    private $short_description;
+
+    /**
+     * @var string
+     */
+    private $user_foto;
+
+    /**
+     * @var string
+     */
+    private $token;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $image;
+
+    /**
+     * @var \App\EducationBundle\Entity\Product
+     */
+    private $category;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->image = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     *
+     * @return Product
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Set product
+     *
+     * @param string $product
+     *
+     * @return Product
+     */
+    public function setProduct($product)
+    {
+        $this->product = $product;
+
+        return $this;
+    }
+
+    /**
+     * Get product
+     *
+     * @return string
+     */
+    public function getProduct()
+    {
+        return $this->product;
+    }
+
+    /**
+     * Set price
+     *
+     * @param string $price
+     *
+     * @return Product
+     */
+    public function setPrice($price)
+    {
+        $this->price = $price;
+
+        return $this;
+    }
+
+    /**
+     * Get price
+     *
+     * @return string
+     */
+    public function getPrice()
+    {
+        return $this->price;
+    }
+
+    /**
+     * Set description
+     *
+     * @param string $description
+     *
+     * @return Product
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * Set company
+     *
+     * @param string $company
+     *
+     * @return Product
+     */
+    public function setCompany($company)
+    {
+        $this->company = $company;
+
+        return $this;
+    }
+
+    /**
+     * Get company
+     *
+     * @return string
+     */
+    public function getCompany()
+    {
+        return $this->company;
+    }
+
+    /**
+     * Set logo
+     *
+     * @param string $logo
+     *
+     * @return Product
+     */
+    public function setLogo($logo)
+    {
+        $this->logo = $logo;
+
+        return $this;
+    }
+
+    /**
+     * Get logo
+     *
+     * @return string
+     */
+    public function getLogo()
+    {
+        return $this->logo;
+    }
+
+    /**
+     * Set url
+     *
+     * @param string $url
+     *
+     * @return Product
+     */
+    public function setUrl($url)
+    {
+        $this->url = $url;
+
+        return $this;
+    }
+
+    /**
+     * Get url
+     *
+     * @return string
+     */
+    public function getUrl()
+    {
+        return $this->url;
+    }
+
+    /**
+     * Set location
+     *
+     * @param string $location
+     *
+     * @return Product
+     */
+    public function setLocation($location)
+    {
+        $this->location = $location;
+
+        return $this;
+    }
+
+    /**
+     * Get location
+     *
+     * @return string
+     */
+    public function getLocation()
+    {
+        return $this->location;
+    }
+
+    /**
+     * Set shortDescription
+     *
+     * @param string $shortDescription
+     *
+     * @return Product
+     */
+    public function setShortDescription($shortDescription)
+    {
+        $this->short_description = $shortDescription;
+
+        return $this;
+    }
+
+    /**
+     * Get shortDescription
+     *
+     * @return string
+     */
+    public function getShortDescription()
+    {
+        return $this->short_description;
+    }
+
+    /**
+     * Set token
+     *
+     * @param string $token
+     *
+     * @return Product
+     */
+    public function setToken($token)
+    {
+        $this->token = $token;
+
+        return $this;
+    }
+
+    /**
+     * Get token
+     *
+     * @return string
+     */
+    public function getToken()
+    {
+        return $this->token;
+    }
+
+    /**
+     * Add image
+     *
+     * @param \App\EducationBundle\Entity\Image $image
+     *
+     * @return Product
+     */
+    public function addImage(\App\EducationBundle\Entity\Image $image)
+    {
+        $this->image[] = $image;
+
+        return $this;
+
+    }
+
+    /**
+     * Remove image
+     *
+     * @param \App\EducationBundle\Entity\Image $image
+     */
+    public function removeImage(\App\EducationBundle\Entity\Image $image)
+    {
+        $this->image->removeElement($image);
+    }
+
+    /**
+     * Get image
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+
+    public static function getTypes()
+    {
+        return [
+            'document' => 'Document goods',
+            'audio' => 'Audio goods',
+            'video' => 'Video goods',
+            'material' => 'Material goods'
+        ];
+    }
+
+    public static function getTypeValues()
+    {
+        return array_keys(self::getTypes());
+    }
+
+    /**
+     * @ORM\PrePersist
+     */
+    public function setTokenValue()
+    {
+        if(!$this->getToken()) {
+            $this->token = sha1($this->getName().rand(11111, 99999));
+        }
+    }
+    /**
+     * @var string
+     */
+    private $type;
+
+
+    /**
+     * Set type
+     *
+     * @param string $type
+     *
+     * @return Product
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+
+    /**
+     * Get type
+     *
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+    /**
+     * @var string
+     */
+    private $file;
+
+
+    /**
+     * Set file
+     *
+     * @param string $file
+     *
+     * @return Product
+     */
+    public function setFile($file)
+    {
+        $this->file = $file;
+
+        return $this;
+    }
+
+    /**
+     * Get file
+     *
+     * @return string
+     */
+    public function getFile()
+    {
+        return $this->file;
+    }
+    /**
+     * @var string
+     */
+    private $product_picture;
+
+
+    /**
+     * Set productPicture
+     *
+     * @param string $productPicture
+     *
+     * @return Product
+     */
+    public function setProductPicture($productPicture)
+    {
+        $this->product_picture = $productPicture;
+
+        return $this;
+    }
+
+    /**
+     * Get productPicture
+     *
+     * @return string
+     */
+    public function getProductPicture()
+    {
+        return $this->product_picture;
+    }
+}

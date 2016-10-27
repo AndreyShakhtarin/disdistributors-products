@@ -1,0 +1,11 @@
+    brochures_directory: "%kernel.root_dir%/../web/uploads/brochures/"
+    image_directory:  "%kernel.root_dir%/../web/images/products/"
+
+    images_product:  "%kernel.root_dir%/../web/uploads/image/images_product/"
+    image_logo:  "%kernel.root_dir%/../web/uploads/image/logo_company/"
+    product_picture:  "%kernel.root_dir%/../web/uploads/image/product_picture/"
+
+    audios_directory:  "%kernel.root_dir%/../web/uploads/image/audio/"
+    videos_directory: "%kernel.root_dir%/../web/uploads/media/video/"
+    documents_directory: "%kernel.root_dir%/../web/uploads/media/document/"
+    pictures_directory: "%kernel.root_dir%/../web/uploads/media/picture/"

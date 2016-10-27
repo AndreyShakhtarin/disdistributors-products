@@ -1,0 +1,52 @@
+App\EducationBundle\Entity\Product:
+    type: entity
+    reposytoryClass: App\EducationBundle\Repository\ProductRepository
+    table: product
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        name:
+            type: string
+            length: 255
+        product:
+            type: string
+            length: 100
+        price:
+            type: decimal
+            scale: 2
+        description:
+            type: text
+        type:
+            type: integer
+            length: 100
+        company:
+            type: string
+            length: 255
+        logo:
+            type: string
+            length: 255
+            nullable: true
+        url:
+            type: string
+            length: 255
+            nullable: true
+        location:
+            type: string
+            length: 255
+        short_description:
+            type: string
+            length: 255
+        file:
+            type: string
+            length: 255
+        product_picture:
+        token:
+    oneToMany:
+        image:
+            targetEntity: Image
+            cascade:  [persist]
+            mappedBy: product
+    lifecycleCallbacks:
+        prePersist: [ setTokenValue ]

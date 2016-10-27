@@ -1,0 +1,33 @@
+product_index:
+    path:     /
+    defaults: { _controller: "AppEducationBundle:Product:index" }
+    methods:  GET
+
+product_show:
+    path:     /{id}/show
+    defaults: { _controller: "AppEducationBundle:Product:show" }
+    methods:  GET
+
+product_preview:
+    path: /{company}/{location}/{token}/{product}
+    defaults: { _controller: "AppEducationBundle:BasePage:preview" }
+    requirements:
+            token:  \w+
+
+user_products:
+    path: /products
+    defaults: { _controller: "AppEducationBundle:Product:showProducts" }
+    requirements:
+            token:  \w+
+
+products_edit:
+    path:  /{token}/
+    defaults: { _controller: "AppEducationBundle:Product:editProduct" }
+    requirements: { _method: post|put }
+
+product_update:
+    path:  /{token}/
+    defaults: { _controller: "AppEducationBundle:Product:updateProduct" }
+    requirements: { _method: post|put }
+
+

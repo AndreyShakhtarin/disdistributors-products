@@ -1,0 +1,6 @@
+<div id="owl-demo" class="owl-carousel">
+
+    {% for image in image %}
+        <div class="item"><img class="lazyOwl" src="{{ asset('uploads/product_pictures/') }}{{ image.image }}" ></div>
+    {% endfor %}
+</div>

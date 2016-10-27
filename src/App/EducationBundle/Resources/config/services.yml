@@ -1,0 +1,33 @@
+services:
+    app.form.registration:
+                class: App\EducationBundle\Form\RegistrationType
+                tags:
+                    - { name: form.type, alias: app_user_registration }
+
+    app.images_product_uploader:
+                class:  App\EducationBundle\UploadFile\FileUploader
+                arguments:  ['%images_product%']
+
+    app.image_logo_uploader:
+                    class:  App\EducationBundle\UploadFile\FileUploader
+                    arguments:  ['%image_logo%']
+
+    app.product_picture_uploader:
+                    class:  App\EducationBundle\UploadFile\FileUploader
+                    arguments:  ['%product_picture%']
+
+    app.audios_product_uploader:
+                class:  App\EducationBundle\UploadFile\FileUploader
+                arguments:  ['%audios_directory%']
+
+    app.videos_product_uploader:
+                        class:  App\EducationBundle\UploadFile\FileUploader
+                        arguments:  ['%videos_directory%']
+
+    app.documents_product_uploader:
+                    class:  App\EducationBundle\UploadFile\FileUploader
+                    arguments:  ['%documents_directory%']
+
+    app.pictures_product_uploader:
+                    class:  App\EducationBundle\UploadFile\FileUploader
+                    arguments:  ['%pictures_directory%']

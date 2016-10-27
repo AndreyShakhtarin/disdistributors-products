@@ -1,0 +1,53 @@
+<div>
+    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+
+        <a class="right button icon-sli-logout" href="{{ path('fos_user_security_logout') }}">
+            logout
+        </a>
+
+    {% endif %}
+</div>
+{% if app.request.hasPreviousSession %}
+    {% for type, messages in app.session.flashbag.all() %}
+        {% for message in messages %}
+            <div class="flash-{{ type }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endfor %}
+{% endif %}
+{% if is_granted("IS_AUTHENTICATED_REMEMBERED") == false %}
+        <form class="customform left" action="{{ path("fos_user_security_check") }}" method="post">
+            <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+            <div class="s-12 l-4 ">
+            <input class="login-input" type="text" id="username" name="_username" value="{{ last_username }}" placeholder="login" required="required" />
+            </div>
+            <div class="none-botom s-12 l-4 ">
+            <input class="login-input none-botom" type="password" id="password" name="_password" placeholder="password" required="required" />
+            </div>
+            <div class=" inline">
+                <div class="inline right login-checkbox-label"><label>remember </label></div>
+                <div class="inline none-botom">
+                    <input class="inline right login-checkbox" type="checkbox" id="remember_me" name="_remember_me" value="on">
+                </div>
+            </div>
+            <div class="s-12 m-6 login-submit none-botom">
+            <button class="button" type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" >Login</button>
+            </div>
+        </form>
+    <!-- Button trigger modal -->
+    <button class="button righ" type="button" data-toggle="modal" data-target="#myModal" >Registration</button>
+    <div id="myModal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title text-center">Registration</h4>
+                </div>
+                <div class="modal-body"></div>
+                {% include "AppEducationBundle:Registration:register.html.twig" %}
+                <button class="button rounded-full-btn registration-submit-cancel" type="button" data-dismiss="modal">Cancel</button>
+            </div>
+        </div>
+    </div>
+{% endif %}
+

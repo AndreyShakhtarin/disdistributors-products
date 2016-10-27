@@ -1,0 +1,127 @@
+{% extends 'AppEducationBundle:BasePage:base_page.html.twig'%}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('bundles/appeducation/shop/css/components.css') }}" type="text/css" media="all">
+    <link rel="stylesheet" href="{{ asset('bundles/appeducation/shop/css/responsee.css') }}" type="text/css" media="all">
+    <link rel="stylesheet" href="{{ asset('bundles/appeducation/shop/css/icons.css') }}" type="text/css" media="all">
+    <link rel="stylesheet" href="{{ asset('bundles/appeducation/css/base/main.css') }}" type="text/css" media="all">
+    <script type="text/javascript" src="{{ asset('bundles/appeducation/jquery/JQuery.js') }}"></script>
+{% endblock stylesheets %}
+{% block content %}
+    <div class="line">
+        <div class="box">
+            <div class="margin3x">
+                {{  form_start(edit_form) }}
+                {{ form_widget(edit_form.name) }}
+                <table>
+                    <thead>
+                    <th colspan="8" class="color-head-olive text-center"><label>Data Product</label></th>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <th>
+                            {{ form_label(edit_form.product) }}
+                        </th>
+                        <td>
+                            {{ form_widget(edit_form.product) }}
+                            {{ form_errors(edit_form.product) }}
+                        </td>
+                        <th>
+                            {{ form_label(edit_form.price) }}
+                        </th>
+                        <td>
+                            {{ form_widget(edit_form.price) }}
+                            {{ form_errors(edit_form.price) }}
+                        </td>
+                        <th>
+                            {{ form_label(edit_form.short_description) }}
+                        </th>
+                        <td>
+                            {{ form_widget(edit_form.short_description) }}
+                            {{ form_errors(edit_form.short_description) }}
+                        </td>
+                        <th>
+                            {{ form_label(edit_form.description) }}
+                        </th>
+                        <td>
+                            {{ form_widget(edit_form.description) }}
+                            {{ form_errors(edit_form.description) }}
+                        </td>
+                    </tr>
+                    <th colspan="8" class=" color-head-olive text-center">
+                        Image for product
+                    </th>
+                    <tr>
+                        <th>
+                            {{ form_label(edit_form.company) }}
+                        </th>
+                        <td>
+                            {{ form_widget(edit_form.company) }}
+                            {{ form_errors(edit_form.company) }}
+                        </td>
+                        <th>
+                            {{ form_label(edit_form.location) }}
+                        </th>
+                        <td>
+                            {{ form_widget(edit_form.location) }}
+                            {{ form_errors(edit_form.location) }}
+                        </td>
+                        <th>
+                            {{ form_label(edit_form.logo) }}
+                        </th>
+                        <td colspan="3">
+                            {{ form_widget(edit_form.logo) }}
+                            {{ form_errors(edit_form.logo) }}
+                        </td>
+                    </tr>
+                    <th colspan="8" class=" color-head-olive text-center" >
+                        Upload Product (for media file)
+                    </th>
+                    <tr>
+                        <th>
+                            {{ form_label(edit_form.type) }}
+                        </th>
+                        <td>
+                            {{ form_widget(edit_form.type) }}
+                            {{ form_errors(edit_form.type) }}
+                        </td>
+                        <th>
+                            {{ form_label(edit_form.file) }}
+                        </th>
+                        <td>
+                            {{ form_widget(edit_form.file) }}
+                            {{ form_errors(edit_form.file) }}
+                        </td>
+                        <th>
+                            {{ form_label(edit_form.product_picture) }}
+                        </th>
+                        <td colspan="3">
+                            {{ form_widget(edit_form.product_picture) }}
+                            {{ form_errors(edit_form.product_picture) }}
+                            <img src="{{ product.productpicture }}">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th colspan="8" class="color-head-olive text-center ">
+                            <label>Add Image (be sure to add)</label>
+                        </th>
+
+                    </tr>
+                    <tr>
+                        <td colspan="8" class="tags" data-prototype=" <span class='label-key '>{{ form_label(edit_form.image.0)|e }} </span><span class='image-label'>{{ form_label(edit_form.image.0.image)|e }}</span><span class='image-widget'>{{ form_widget(edit_form.image.0.image)|e }}</span> <span class='description-label'>Description image</span><span class='description-widget'>{{ form_widget(edit_form.image.0.descimage)|e }}</span>">
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="8">
+                            <a href="{{ path('app_homepage') }}"><span class="show_back_text"> Back to Main</span></a>
+                            <span class="l-5">{{ form_widget(edit_form.save) }}</span>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                {{ form_end(edit_form) }}
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="{{ asset('bundles/appeducation/js/prototype/prototype.js') }}"></script>
+{% endblock %}

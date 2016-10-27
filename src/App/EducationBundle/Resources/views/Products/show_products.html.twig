@@ -1,0 +1,42 @@
+{% extends 'AppEducationBundle:BasePage:base_page.html.twig'%}
+{% block content %}
+    <div class="line" >
+        <div class="box">
+            <div class="margin2x">
+                {% include ('AppEducationBundle:Products:sort.html.twig') %}
+
+                {% for product in products %}
+                <section class="s-12 m-8 l-9 right product-prew">
+                    <h3 class="color-head-olive product-pres rounded-10 l-2 margin-left10 margin2x show-products text-center"> № {{ product.id }}</h3>
+                    <h3 class="text-center color-head-olive product-pres rounded-10 l-7 margin-left10"> Product: {{ product.product }}</h3>
+                    <div class="s-12 m-12 l-4 hide-m hide-s margin-bottom product-pres padding rounded-10">
+                        <img src="{{ asset('uploads/image/product_picture/') }}{{ product.productpicture }}">
+                    </div>
+                    <div class="s-12 m-12 l-5 padding margin-left10">
+                        <p class="padding product-desc margin-bottom"><strong>Implementer:</strong> {{ product.name }}</p>
+                        <p class="padding product-desc margin-bottom"><strong>Product:</strong> {{ product.product }}</p>
+                        <p class="padding product-desc margin-bottom"><strong>Price:</strong> {{ product.price }}</p>
+                        <p class="padding product-desc margin-bottom"><strong>Description:</strong> {{ product.description }}</p>
+                    </div>
+
+
+                    <div class="s-12 m-12 l-5 padding margin-right15 right">
+                        <div class="product-desc">
+                            <a class="margin-left5" href="{{ path('products_edit', {'token': product.token}) }}">Edit</a>
+                            <a class="margin-left5">Delete</a>
+                            <form class="inline padding">
+                                <span class="color-head-olive">Published: <input  class="" type="checkbox" name="is_published"><span>
+                                        <button type="submit"> Save</button>
+                            </form>
+
+                        </div>
+                    </div>
+
+                </section>
+                {% endfor %}
+
+
+            </div>
+        </div>
+    </div>
+{% endblock %}

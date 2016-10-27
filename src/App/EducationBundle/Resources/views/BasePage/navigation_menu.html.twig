@@ -1,0 +1,39 @@
+<div class="top-nav s-12 l-11">
+    <ul>
+        <li><a class="icon-sli-handbag" href="{{ path('app_homepage') }}"> All Products</a></li>
+        <li>
+            <a>Product</a>
+            <ul>
+                <li><a>Product 1</a></li>
+                <li><a>Product 2</a></li>
+                <li>
+                    <a>Product 3</a>
+                    <ul>
+                        <li><a>Product 3-1</a></li>
+                        <li><a>Product 3-2</a></li>
+                        <li><a>Product 3-3</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a>Company</a>
+            <ul>
+                <li><a>About</a></li>
+                <li><a>Location</a></li>
+            </ul>
+        </li>
+        {% if is_granted("IS_AUTHENTICATED_REMEMBERED")  %}
+            {% if is_granted('user_products') %}
+                <li><a href="{{ path('user_products') }}">My products</a></li>
+            {% endif %}
+            <li><a class="icon-sli-wrench" href="{{ path('user_products') }}"> My Store</a></li>
+
+            <li><a class="icon-sli-people "> Partner products</a></li>
+            <li><a class="" href="{{ path('product_create') }}">Create new Product</a></li>
+        {% endif %}
+    </ul>
+    <div class="form-inline padding">
+        {% include 'AppEducationBundle:Security:login_content.html.twig' %}
+    </div>
+</div>

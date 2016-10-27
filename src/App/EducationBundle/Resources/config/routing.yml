@@ -1,0 +1,34 @@
+app_education_product:
+    resource: "@AppEducationBundle/Resources/config/routing/product.yml"
+    prefix:   /product
+
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+
+app_homepage:
+    path:     /
+    defaults: { _controller: AppEducationBundle:BasePage:basePage }
+
+app_homepage_table:
+    path:     /table
+    defaults: { _controller: AppEducationBundle:BasePage:basePage }
+
+
+app_register:
+    path:     /register/
+    defaults: { _controller: AppEducationBundle:BasePage:basePage }
+app_registration:
+    path:     /register/confirmed
+    defaults: { _controller: AppEducationBundle:BasePage:basePage }
+
+product_create:
+    path:     /create
+    defaults: { _controller: AppEducationBundle:Product:create }
+
+product_show:
+    path: /show/{id}
+    defaults: { _controller: AppEducationBundle:Product:show }
+
+product_remove:
+    path: /remove
+    defaults: { _controller: AppEducationBundle:Product:remove }

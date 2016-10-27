@@ -1,0 +1,44 @@
+{% extends 'AppEducationBundle:BasePage:base_page.html.twig' %}
+{% block content %}
+    <div class="line">
+        <div class="box">
+            <div class="margin2x">
+                <!-- CONTENT -->
+                <section class="s-12 m-8 l-9 right">
+                    <div class="margin">
+                        {% for product in products %}
+                            <div class="s-12 m-6 l-4 product-pres ">
+                                <a href="{{ path('product_preview',{ 'company': product.company, 'location': product.location, 'token': product.token, 'product': product.product }) }}">
+                                    <img class="padding" src="{{ asset('uploads/image/product_picture/') }}{{ product.productpicture }}">
+                                </a>
+                                <span>
+                                    <h4><strong>{{ product.product }}</strong> <br> EUR {{ product.price }}</h4>
+                                    <div class="product-desc">
+                                        {{ product.shortdescription }}
+                                    </div>
+                                </span>
+                                <span><a class="button rounded-full-btn btn-link">Products {{ product.name }}</a></span><span class="button rounded-full-btn right"> Product Description</span>
+                                <form class="customform s-12 margin-bottom2x" action="">
+                                    <div><button class="button rounded-btn submit-btn s-12" type="submit">Add to Cart</button></div>
+                                </form>
+                            </div>
+                        {% endfor %}
+                        <div class="s-12 m-6 l-4">
+                            <img src="{{ asset('bundles/appeducation/shop/img/330x190.jpg') }}">
+                            <h4 class="margin-bottom"><strong>Name</strong> | EUR 20</h4>
+                            <form class="customform s-12 margin-bottom2x" action="">
+                                <div><button class="button rounded-btn submit-btn s-12" type="submit">Add to Cart</button></div>
+                            </form>
+                        </div>
+                    </div>
+                </section>
+                <!-- ASIDE NAV -->
+                {% include ('AppEducationBundle:Products:sort.html.twig') %}
+            </div>
+        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+            <a href="{{ path('product_create') }}"> Создать продукт </a>
+
+        {% endif %}
+        </div>
+    </div>
+ {% endblock %}

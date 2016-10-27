@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+
+        <![endif]-->
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {% block stylesheets %}
+
+            <link rel="stylesheet" href="{{ asset('bundles/appeducation/shop/css/components.css') }}" type="text/css" media="all">
+            <link rel="stylesheet" href="{{ asset('bundles/appeducation/css/custom.modal.css') }}" type="text/css" media="all">
+            <link rel="stylesheet" href="{{ asset('bundles/appeducation/shop/css/icons.css') }}" type="text/css" media="all">
+            <link rel="stylesheet" href="{{ asset('bundles/appeducation/css/custom.collapse.css') }}" type="text/css" media="all">
+            <link rel="stylesheet" href="{{ asset('bundles/appeducation/shop/css/responsee.css') }}" type="text/css" media="all">
+            <link rel="stylesheet" href="{{ asset('bundles/appeducation/css/base/main.css') }}" type="text/css" media="all">
+        {% endblock %}
+
+
+        <script type="text/javascript" src="{{ asset('bundles/appeducation/js/jquery.js') }}"></script>
+
+
+        <script src="{{ asset('bundles/appeducation/shop/js/modernizr.js') }}"></script>
+
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+    <body class="size-1280">
+
+    {% block index %}
+    {% endblock %}
+
+    {% block javascripts %}
+        <script type="text/javascript" src="{{ asset('bundles/appeducation/js/collapse/collapse.min.js') }}"></script>
+        <script src="{{ asset('bundles/appeducation/shop/js/responsee.js') }}"></script>
+
+        <script src="{{ asset('bundles/appeducation/js/bootstrap.min.js') }}"></script>
+    {% endblock %}
+
+
+    </body>
+</html>
