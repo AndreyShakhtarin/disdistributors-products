@@ -16,6 +16,7 @@ App\EducationBundle\Entity\Product:
         price:
             type: decimal
             scale: 2
+        currency:
         description:
             type: text
         type:

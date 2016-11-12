@@ -1,0 +1,17 @@
+Product: Товар
+Price: Цена
+'Short description': 'Краткое описание'
+Description: 'Полное описание'
+Company: Компания
+Location: Локация
+'Company logo': 'Логотип Компании'
+Type: Тип
+document: документ
+audio: аудио
+video: видео
+material: вещь
+'Upload File': 'Загрузка медиа'
+'Main picture for product': 'Презинтабельная картинка'
+Image: Картинка
+Save: Сохранить
+0: 0

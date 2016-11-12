@@ -21,7 +21,7 @@ class AppKernel extends Kernel
             new App\EducationBundle\AppEducationBundle(),
             new FOS\UserBundle\FOSUserBundle(),
             new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
-
+            new App\UserBundle\AppUserBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

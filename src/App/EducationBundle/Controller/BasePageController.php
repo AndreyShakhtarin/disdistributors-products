@@ -26,8 +26,10 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 use FOS\UserBundle\Model\UserInterface;
+use FOS\UserBundle\Controller\RegistrationController as BaseController;
+use App\EducationBundle\Form\UserType;
 
-class BasePageController extends Controller
+class BasePageController extends BaseController
 {
     static $login;
     static $register;
@@ -35,7 +37,6 @@ class BasePageController extends Controller
     public function basePageAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
-
         $products = $em->getRepository('AppEducationBundle:Product')->findAll();
         $form = $this->registerAction($request);
         $logining = $this->loginAction($request);
@@ -43,7 +44,10 @@ class BasePageController extends Controller
         self::$register = $logining;
         $logining['products'] = $products;
         $logining['form'] = $form;
-
+        $user = new User();
+        $form2 = $this->createForm(UserType::class, $user);
+        $form2->handleRequest($request);
+        $logining['form2'] =$form2;
         //$user = $this->get('security.token_storage')->getToken()->getUser();
         $template = $this->switcher($request);
         return $this->render("AppEducationBundle:Products:$template.html.twig", $logining

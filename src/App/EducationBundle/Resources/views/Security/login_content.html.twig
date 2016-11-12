@@ -20,7 +20,7 @@
         <form class="customform left" action="{{ path("fos_user_security_check") }}" method="post">
             <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
             <div class="s-12 l-4 ">
-            <input class="login-input" type="text" id="username" name="_username" value="{{ last_username }}" placeholder="login" required="required" />
+            <input class="login-input" type="text" id="username" name="_username" value="{{ last_username }}" placeholder="{{ 'security.login.username'|trans }}" required="required" />
             </div>
             <div class="none-botom s-12 l-4 ">
             <input class="login-input none-botom" type="password" id="password" name="_password" placeholder="password" required="required" />

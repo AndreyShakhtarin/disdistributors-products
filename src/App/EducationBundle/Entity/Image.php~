@@ -97,6 +97,7 @@ class Image
     {
 
         $this->product = $product;
+
     }
 
     /**

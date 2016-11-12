@@ -1,9 +1,8 @@
 App\EducationBundle\Entity\Product:
     properties:
         product:
-            - Length:
-                min: 10
-                minMessage: 'ику'
+App\EducationBundle\Entity\Image:
+    properties:
 
 
 

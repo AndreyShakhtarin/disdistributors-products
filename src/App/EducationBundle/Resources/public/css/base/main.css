@@ -117,6 +117,7 @@
 .form-added {
     color: #444;
     border: 1px solid dimgray;
+    padding-right: 20px;
 }
 
 .form-options{
@@ -144,19 +145,18 @@
     border-bottom: 1px solid darkgrey;
     border-top: 1px solid grey;
     border-radius: 5px;
-    padding: 37px 20px 4px;
+    padding: 28px 20px 9px;
     background-color: gainsboro;
     margin-left: 20px;
 }
 
-.image-widget{
+.image-widget input{
     font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size: 16px;
     font-weight: bold;
     border-bottom: 1px solid darkgrey;
     border-top: 1px solid grey;
     border-radius: 5px;
-    padding: 37px 20px 4px ;
+    padding: 26px 20px 5px ;
     background-color: gainsboro;
     margin-left: 20px;
 }
@@ -168,21 +168,24 @@
     border-bottom: 1px solid darkgrey;
     border-top: 1px solid grey;
     border-radius: 5px;
-    padding: 37px 20px 4px;
+    padding: 28px 20px 9px;
     background-color: gainsboro;
     margin-left: 20px;
 }
 
-.description-widget{
+.description-widget textarea{
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 16px;
     font-weight: bold;
     border-bottom: 1px solid darkgrey;
     border-top: 1px solid grey;
     border-radius: 5px;
-    padding: 37px 20px 4px;
-    background-color: gainsboro;
-    margin-left: 20px;
+    margin: 5px 20px -11px 20px;
+    height: 58px;
+    width: 400px;
+}
+
+.description-widget{
 
 }
 .tags {
@@ -192,5 +195,13 @@
 }
 
 .deleted {
-    padding-right: 10px;
+    padding-right: 50px;
+}
+
+.display-none label{
+    display: none;
+}
+
+.l-10px select{
+    width: 10px;
 }

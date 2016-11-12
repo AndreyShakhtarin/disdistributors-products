@@ -14,12 +14,31 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use App\EducationBundle\Entity\Image;
+
+use Symfony\Component\Validator\Constraints\Image as ImgCons;
+use Symfony\Component\Validator\Constraints\NotBlank;
 class ImageType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('image', FileType::class)
-                ->add('descimage', TextareaType::class);
+        $builder
+            ->add('image', FileType::class,
+                array(
+                    'constraints' =>
+                        new ImgCons(
+                            array(
+                                'mimeTypes' => 'image/*',
+
+                            )
+                        ),
+
+                )
+            )
+                ->add('descimage', TextareaType::class,
+                    array(
+
+                    )
+                );
 
     }
 

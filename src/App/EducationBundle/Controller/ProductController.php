@@ -28,7 +28,10 @@ use App\EducationBundle\Repository\ProductRepository;
 use App\EducationBundle\Repository\UserRepository;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
-use Symfony\Component\Validator\ConstraintViolationList;
+
+use App\EducationBundle\Form\UserType;
+
+
 /**
  * Product controller.
  *
@@ -39,14 +42,12 @@ class ProductController extends Controller
 
     public function createAction(Request $request)
     {
+
         $em = $this->getDoctrine()->getManager();
 
         $product = new Product();
         $img = new Image();
-
         $product->getImage()->add($img);
-
-
 
 
         $form = $this->createForm(ProductType::class, $product);
@@ -95,27 +96,22 @@ class ProductController extends Controller
 
 
 
+
+
             //$em->flush();
             //return $this->redirectToRoute('product_show', array('id' => $product->getId()));
         }
 
-        $validator = $this->get('validator');
-
-        $errors = $validator->validate($product);
-        print_r($errors);
         $data['errors'] = null;
-        if (count($errors) > 0) {
-            /*
-             * Uses a __toString method on the $errors variable which is a
-             * ConstraintViolationList object. This gives us a nice string
-             * for debugging.
-             */
-            $errorsString = (string) $errors;
-            $data['errors'] = $errors;
-            echo 'work';
-        }
+
+
+
+
+        $data['product'] = $product;
 
         $data['form'] = $form->createView();
+        //var_dump($product);
+
         return $this->render('AppEducationBundle:Products:create.html.twig', $data);
     }
 

@@ -3,6 +3,8 @@
 namespace App\EducationBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Config\Definition\Exception\Exception;
 use Symfony\Component\Validator\Constraints as Assert;
 /**
  * Product
@@ -21,6 +23,12 @@ class Product
 
     /**
      * @var string
+     * * @Assert\Length(
+     *      min = 5,
+     *      max = 50,
+     *      minMessage = "Your first name must be at least {{ limit }} characters long",
+     *      maxMessage = "Your first name cannot be longer than {{ limit }} characters"
+     * )
      */
     private $product;
 
@@ -84,7 +92,7 @@ class Product
      */
     public function __construct()
     {
-        $this->image = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->image = new ArrayCollection();
     }
 
     /**
@@ -346,8 +354,11 @@ class Product
      */
     public function addImage(\App\EducationBundle\Entity\Image $image)
     {
-        $this->image[] = $image;
-
+        $this->image[] =$this->getImage()->add($image) ;
+        if(!$this->getImage()->add($image))
+        {
+            throw new Exception("error");
+        }
         return $this;
 
     }
@@ -483,5 +494,49 @@ class Product
     public function getProductPicture()
     {
         return $this->product_picture;
+    }
+    /**
+     * @var string
+     */
+    private $currency;
+
+
+    /**
+     * Set currency
+     *
+     * @param string $currency
+     *
+     * @return Product
+     */
+    public function setCurrency($currency)
+    {
+        $this->currency = $currency;
+
+        return $this;
+    }
+
+    /**
+     * Get currency
+     *
+     * @return string
+     */
+    public function getCurrency()
+    {
+        return $this->currency;
+    }
+
+    public static function getCurrencies()
+    {
+        return [
+            'USA' => 'dollar',
+            'EUR' => 'euro',
+            'RUB' => 'ruble',
+            'KGS' => 'som'
+        ];
+    }
+
+    public static function getValuesCurrency()
+    {
+        return array_keys(self::getCurrencies());
     }
 }

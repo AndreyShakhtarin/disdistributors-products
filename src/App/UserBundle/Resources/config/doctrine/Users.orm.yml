@@ -1,4 +1,4 @@
-App\EducationBundle\Entity\User:
+App\UserBundle\Entity\Users:
     type:  entity
     table: fos_user
     id:

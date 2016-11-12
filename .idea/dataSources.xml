@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="3103937753">
+  <component name="DataSourceManagerImpl" format="xml" hash="4005233599">
     <data-source source="LOCAL" name="MySQL - symfony@localhost" uuid="1df977d5-fa7f-4a5f-86b1-73cee254801a">
       <driver-ref>mysql</driver-ref>
       <synchronize>true</synchronize>
