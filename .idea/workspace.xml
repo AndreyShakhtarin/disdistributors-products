@@ -2,53 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d7d7f728-411d-4996-a34b-1b538ae125e9" name="Default" comment="Education2">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dataSources.ids" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Resources/views/users/edit.html.twig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Resources/views/users/index.html.twig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Resources/views/users/new.html.twig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Resources/views/users/show.html.twig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/App/EducationBundle/Resources/translations/validators.der.yml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/App/EducationBundle/Resources/translations/validators.ru.yml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/App/UserBundle/AppUserBundle.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/App/UserBundle/Controller/DefaultController.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/App/UserBundle/Controller/UsersController.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/App/UserBundle/Entity/Users.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/App/UserBundle/Form/UsersType.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/App/UserBundle/Resources/config/routing.yml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/App/UserBundle/Resources/config/routing/users.yml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/App/UserBundle/Resources/config/services.yml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/App/UserBundle/Resources/views/Users/index.html.twig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/App/UserBundle/Tests/Controller/UsersControllerTest.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tests/AppUserBundle/Controller/DefaultControllerTest.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tests/UserBundle/Controller/DefaultControllerTest.php" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/SymfonyRequirements.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/.gitkeep" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/logs/.gitkeep" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/sessions/.gitkeep" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/UserBundle/UserBundle.php" afterPath="$PROJECT_DIR$/src/App/UserBundle/AppUserBundle.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/AppKernel.php" afterPath="$PROJECT_DIR$/app/AppKernel.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/translations/validators.ru.yml" afterPath="$PROJECT_DIR$/app/Resources/translations/validators.ru.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/config.yml" afterPath="$PROJECT_DIR$/app/config/config.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/routing.yml" afterPath="$PROJECT_DIR$/app/config/routing.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.lock" afterPath="$PROJECT_DIR$/composer.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/App/EducationBundle/Controller/BasePageController.php" afterPath="$PROJECT_DIR$/src/App/EducationBundle/Controller/BasePageController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/App/EducationBundle/Controller/ProductController.php" afterPath="$PROJECT_DIR$/src/App/EducationBundle/Controller/ProductController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/App/EducationBundle/Entity/Image.php" afterPath="$PROJECT_DIR$/src/App/EducationBundle/Entity/Image.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/App/EducationBundle/Entity/Product.php" afterPath="$PROJECT_DIR$/src/App/EducationBundle/Entity/Product.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/App/EducationBundle/Form/ImageType.php" afterPath="$PROJECT_DIR$/src/App/EducationBundle/Form/ImageType.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/App/EducationBundle/Form/ProductType.php" afterPath="$PROJECT_DIR$/src/App/EducationBundle/Form/ProductType.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/App/EducationBundle/Form/UserType.php" afterPath="$PROJECT_DIR$/src/App/EducationBundle/Form/UserType.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/App/EducationBundle/Resources/config/doctrine/Product.orm.yml" afterPath="$PROJECT_DIR$/src/App/EducationBundle/Resources/config/doctrine/Product.orm.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/App/EducationBundle/Resources/config/validation.yml" afterPath="$PROJECT_DIR$/src/App/EducationBundle/Resources/config/validation.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/App/EducationBundle/Resources/public/css/base/main.css" afterPath="$PROJECT_DIR$/src/App/EducationBundle/Resources/public/css/base/main.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/App/EducationBundle/Resources/translations/messages.en.yml" afterPath="$PROJECT_DIR$/src/App/EducationBundle/Resources/translations/messages.en.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/App/EducationBundle/Resources/translations/messages.ru.yml" afterPath="$PROJECT_DIR$/src/App/EducationBundle/Resources/translations/messages.ru.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/App/EducationBundle/Resources/views/Products/create.html.twig" afterPath="$PROJECT_DIR$/src/App/EducationBundle/Resources/views/Products/create.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/App/EducationBundle/Resources/views/Security/login_content.html.twig" afterPath="$PROJECT_DIR$/src/App/EducationBundle/Resources/views/Security/login_content.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/App/UserBundle/Resources/config/doctrine/Users.orm.yml" afterPath="$PROJECT_DIR$/src/App/UserBundle/Resources/config/doctrine/Users.orm.yml" />
     </list>
     <ignored path="education.iws" />
     <ignored path=".idea/workspace.xml" />
