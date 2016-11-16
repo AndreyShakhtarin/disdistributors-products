@@ -2,6 +2,7 @@
 
 namespace App\EducationBundle\Entity;
 
+
 /**
  * Image
  */

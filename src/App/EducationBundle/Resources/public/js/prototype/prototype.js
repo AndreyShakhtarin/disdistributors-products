@@ -2,7 +2,7 @@ var $collectionHolder;
 // setup an "add a tag" link
 var $addTagLink = $('<span class="form-options"><a href="#" class="add_tag_link "> <i class="icon-plus black"></i> Add </a></span>');
 var $newLinkLi = $('<span class="form-add"></span>').append($addTagLink);
-var i = 1;
+var i = 0;
 jQuery(document).ready(function() {
     // Get the ul that holds the collection of tags
     $collectionHolder = $('td.tags');
@@ -25,9 +25,9 @@ jQuery(document).ready(function() {
             addTagFormDeleteLink($(this));
         });
     });
+    addTagForm($collectionHolder, $newLinkLi);
 
 });
-
 function addTagForm($collectionHolder, $newLinkLi) {
     // Get the data-prototype explained earlier
     //document.write($collectionHolder);
@@ -48,16 +48,17 @@ function addTagForm($collectionHolder, $newLinkLi) {
     var $newFormLi = $('<tr class="form-added"></tr>').append(newForm);
     //document.write($newFormLi+"<br>");
     $newLinkLi.before($newFormLi);
-
-    addTagFormDeleteLink($newFormLi);
-
+    if(i !=0){
+        addTagFormDeleteLink($newFormLi);
+    }
+    ++i;
 }
 
 
 function addTagFormDeleteLink($tagFormLi) {
-    if(i != 0){
-        var $removeFormA = $('<span class="form-options"><a href="#" class="deleted"> Delete </a></span>');
-    }
+
+    var $removeFormA = $('<span class="form-options"><a href="#" class="deleted"> Delete </a></span>');
+
 
     $tagFormLi.append($removeFormA);
 

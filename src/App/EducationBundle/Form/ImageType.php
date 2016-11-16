@@ -28,16 +28,13 @@ class ImageType extends AbstractType
                         new ImgCons(
                             array(
                                 'mimeTypes' => 'image/*',
-
+                                'mimeTypesMessage' => 'Type image'
                             )
                         ),
 
                 )
             )
-                ->add('descimage', TextareaType::class,
-                    array(
-
-                    )
+                ->add('descimage', TextareaType::class
                 );
 
     }

@@ -20,7 +20,7 @@
 }
 
 .registration-submit-cancel {
-    margin-left: 66%;
+    margin-left: 64%;
 }
 
 .show_background {
@@ -204,4 +204,8 @@
 
 .l-10px select{
     width: 10px;
+}
+
+.ml-15{
+    margin-left: 15px;
 }

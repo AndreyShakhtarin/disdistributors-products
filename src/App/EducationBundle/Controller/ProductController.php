@@ -47,33 +47,28 @@ class ProductController extends Controller
 
         $product = new Product();
         $img = new Image();
+
         $product->getImage()->add($img);
 
 
         $form = $this->createForm(ProductType::class, $product);
         $form->handleRequest($request);
 
-        $product->setName($this->getUser());
 
 
 
-        if ($form->isSubmitted() && $form->isValid()) {
-                foreach ($product->getImage() as $image) {
-                    if($image->getImage()){
+
+        if ($form->isSubmitted() && $form->isValid())
+        {
+                foreach ($product->getImage() as $image)
+                {
+                    if($image->getImage())
+                    {
                         $fileName = $image->getImage();
-                        $fileName = $this->uploadSwitcher($fileName, 'app.images_product_uploader');
+                        $fileName = $this->get('app.images_product_uploader')->uploadImages($fileName);
                         $image->setImage($fileName);
-                        //$fileName = $this->get('app.images_product_uploader')->uploadImages($fileName);
 
-                        /*$imageFile = $image->getImage();
-                        $fileName = md5(uniqid()).'.'.$imagefile->guessExtension();
-                        $imagefile->move(
-                            $this->getParameter('images_directory'),
-                            $fileName
-                        );
-                        */
                         $image->setProduct($product);
-                        $image->setImage($fileName);
                         $em->persist($image);
                     }
                 }
@@ -81,36 +76,40 @@ class ProductController extends Controller
             $typeCategory = $product->getType();
             $type = $em->getRepository('AppEducationBundle:Category')->findOneByCategory($typeCategory);
 
+
             $file = $product->getFile();
+            $service = $this->fileType($file);
+            $fileName = $this->get($service)->uploadImages($file);
+            $product->setFile($fileName);
+
+            $logo = $product->getLogo();
+            $logoName = $this->get('app.image_logo_uploader')->uploadImages($logo);
+            $product->setLogo($logoName);
+
+            $pro_pic = $product->getProductPicture();
+            $pro_picName = $this->get('app.product_picture_uploader')->uploadImages($pro_pic);
+            $product->setProductPicture($pro_picName);
+
+            $productType = $product->getType();
 
 
-                $fileName = md5(uniqid()).'.'.$file->getClientOriginalName();
-                $file->move(
-                    $this->getParameter('audios_directory'),
-                    $fileName
-                );
-                $productType = $product->getType();
-                $productType = $em->getRepository('AppEducationBundle:Category')->findOneBy($productType);
-                $id = $productType->getId();
-                $product->setType($id);
 
 
 
 
+            $product->setName($this->getUser());
+            $em->persist($product);
 
-            //$em->flush();
-            //return $this->redirectToRoute('product_show', array('id' => $product->getId()));
+            $em->flush();
+
+            return $this->redirectToRoute('product_show', array('id' => $product->getId()));
         }
 
         $data['errors'] = null;
 
-
-
-
         $data['product'] = $product;
 
         $data['form'] = $form->createView();
-        //var_dump($product);
 
         return $this->render('AppEducationBundle:Products:create.html.twig', $data);
     }
@@ -207,6 +206,25 @@ class ProductController extends Controller
         ));
     }
 
+    public function fileType($file)
+    {
+        $fileType = $file->getClientMimeType();
+        $types = array(
+            '/audio/' => 'app.audios_product_uploader',
+            '/video/'=> 'app.videos_product_uploader',
+            '/image/' => 'app.pictures_product_uploader'
+        );
+        foreach($types as $type=>$parameter)
+        {
+            if(preg_match($type, $fileType))
+            {
+                return $parameter;
+            }
+        }
+        $parameter = 'app.documents_product_uploader';
+        return $parameter;
+
+    }
     public static function getCurrentUser()
     {
         return self::$username;

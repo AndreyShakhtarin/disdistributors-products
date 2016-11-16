@@ -20,7 +20,9 @@ app_register:
 app_registration:
     path:     /register/confirmed
     defaults: { _controller: AppEducationBundle:BasePage:basePage }
-
+app_login:
+    path: /login
+    defaults: { _controller: AppEducationBundle:BasePage:basePage }
 product_create:
     path:     /create
     defaults: { _controller: AppEducationBundle:Product:create }

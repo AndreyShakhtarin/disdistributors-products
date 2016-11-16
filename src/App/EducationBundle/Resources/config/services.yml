@@ -16,6 +16,7 @@ services:
                     class:  App\EducationBundle\UploadFile\FileUploader
                     arguments:  ['%product_picture%']
 
+
     app.audios_product_uploader:
                 class:  App\EducationBundle\UploadFile\FileUploader
                 arguments:  ['%audios_directory%']

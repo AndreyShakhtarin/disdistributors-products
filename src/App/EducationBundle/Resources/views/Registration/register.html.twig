@@ -1,6 +1,6 @@
 
 {% if is_granted("IS_AUTHENTICATED_REMEMBERED") == false%}
-{{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
+    {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
     <table>
         <tbody>
         <tr>

@@ -8,8 +8,12 @@
 
 namespace App\UserBundle\Reposytory;
 
+use Doctrine\ORM\EntityRepository;
 
-class UsersRepository
+class UsersRepository extends EntityRepository
 {
-
+    public function getUser($criteria, array $orderBy = null)
+    {
+        return parent::findOneBy($criteria, $orderBy);
+    }
 }

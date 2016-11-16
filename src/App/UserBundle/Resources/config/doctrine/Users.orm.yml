@@ -1,4 +1,5 @@
 App\UserBundle\Entity\Users:
+    reposytoryClass: App\UserBundle\Repository\UsersRepository
     type:  entity
     table: fos_user
     id:

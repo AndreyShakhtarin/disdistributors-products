@@ -8,6 +8,7 @@
 
 namespace App\EducationBundle\Form;
 
+use Sonata\AdminBundle\Form\Type\Filter\NumberType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\MoneyType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -21,6 +22,7 @@ use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use App\EducationBundle\Form\ImageType;
 use Symfony\Component\Validator\Constraints\File;
 use Symfony\Component\Validator\Constraints\Image;
@@ -28,6 +30,7 @@ use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\Validator\Constraints\Regex;
 use Symfony\Component\Validator\Constraints\Type;
+
 
 class ProductType extends AbstractType
 {
@@ -65,7 +68,7 @@ class ProductType extends AbstractType
                     )
                 )
             )
-            ->add('price', TextType::class,
+            ->add('price', \Symfony\Component\Form\Extension\Core\Type\NumberType::class,
                 array(
                     'constraints' =>
                     array(
@@ -77,8 +80,8 @@ class ProductType extends AbstractType
                         ),
                         new Type(
                             array(
-                                'type' => 'int',
-                                'message' => 'Формат поля число'
+                                'type' => 'float',
+                                'message' => 'Формат поля число {{ type }}'
                             )
                         ),
                     )
@@ -152,10 +155,10 @@ class ProductType extends AbstractType
                             new Image(
                                 array(
                                     'mimeTypes' => 'image/*',
-                                    'minWidth'  => 200,
-                                    'maxWidth'  => 200,
-                                    'minHeight' => 200,
-                                    'maxHeight' => 200,
+                                    'minWidth'  => 199,
+                                    'maxWidth'  => 201,
+                                    'minHeight' => 199,
+                                    'maxHeight' => 201,
                                     'mimeTypesMessage' => 'тип файла дожен быть image',
                                     'minWidthMessage' => 'Ширина и высота картинки должна быть равна 200 px',
                                     'maxWidthMessage' => 'Ширина и высота картинки должна быть равна 200 px',

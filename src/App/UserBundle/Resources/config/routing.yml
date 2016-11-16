@@ -2,6 +2,6 @@ app_user_users:
     resource: "@AppUserBundle/Resources/config/routing/users.yml"
     prefix:   /users
 
-app_user_homepage:
-    path:     /users
-    defaults: { _controller: AppUserBundle:Default:index }
+
+
+

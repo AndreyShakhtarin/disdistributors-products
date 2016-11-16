@@ -15,7 +15,7 @@ App\EducationBundle\Entity\Image:
     manyToOne:
         product:
             targetEntity: Product
-            inversedBy: image
+            inversedBy: Image
             joinColumn:
                 name: product_id
                 referencedColumnName: id

@@ -20,9 +20,7 @@
         <tr>
 
             <th>
-                {% trans %}Product{% endtrans %}
-                    {{ form_label(form.product) }}
-
+                {{ form_label(form.product) }}
             </th>
             <td>
                 {{ form_widget(form.product) }}
@@ -120,7 +118,6 @@
                 </span>
                 <span class='image-widget'>
                     {{ form_widget(form.image.0.image)|e }}
-
                 </span>
                 <span class='description-label'>
                     Description image
@@ -145,11 +142,11 @@
                 <a href="{{ path('app_homepage') }}"><span class="show_back_text"> Back to Main</span></a>
                 <span class="l-5">{{ form_widget(form.save) }}</span>
             </td>
-
         </tr>
         </tbody>
     </table>
-            
+            {{ form_end(form) }}
+            {{ form_rest(form) }}
         </div>
     </div>
 </div>

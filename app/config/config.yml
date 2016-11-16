@@ -110,7 +110,7 @@ doctrine_phpcr:
 fos_user:
     db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
     firewall_name: main
-    user_class: App\EducationBundle\Entity\User
+    user_class: App\UserBundle\Entity\Users
     registration:
                 form:
                     type: App\EducationBundle\Form\RegistrationType

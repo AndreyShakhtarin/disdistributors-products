@@ -18,4 +18,8 @@ Save: Сохранить
 EUR: €
 USA: $
 RUB: P
-KGS:
+KGS: С
+security.login.username: Имя пользователя
+security.login.submit: Вход
+Registration: Регистрация
+€:

@@ -8,8 +8,30 @@
 
 namespace App\UserBundle\Form;
 
+use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class SecurityType
+class SecurityType extends AbstractType
 {
+    public function getParent()
+    {
+        return 'FOS\UserBundle\Form\Type\UsernameForm';
+    }
 
+    /**
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->getBlockPrefix();
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getBlockPrefix()
+    {
+        return 'fos_user_username';
+    }
 }

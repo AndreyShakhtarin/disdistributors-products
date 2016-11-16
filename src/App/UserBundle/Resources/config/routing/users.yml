@@ -1,6 +1,6 @@
 users_index:
     path:     /
-    defaults: { _controller: "AppUserBundle:Users:index" }
+    defaults: { _controller: "AppUserBundle:Users:Registration" }
     methods:  GET
 
 users_show:

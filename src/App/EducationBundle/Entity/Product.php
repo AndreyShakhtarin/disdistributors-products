@@ -6,6 +6,8 @@ use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Config\Definition\Exception\Exception;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Validator\Mapping\ClassMetadata;
+
 /**
  * Product
  */
@@ -354,11 +356,7 @@ class Product
      */
     public function addImage(\App\EducationBundle\Entity\Image $image)
     {
-        $this->image[] =$this->getImage()->add($image) ;
-        if(!$this->getImage()->add($image))
-        {
-            throw new Exception("error");
-        }
+        $this->image[] = $image;
         return $this;
 
     }
@@ -539,4 +537,14 @@ class Product
     {
         return array_keys(self::getCurrencies());
     }
+
+    /*public static function loadValidatorMetadata(ClassMetadata $metadata)
+    {
+        $metadata->addPropertyConstraint('product', new Assert\Type('string'));
+
+        $metadata->addPropertyConstraint('price', new Assert\Type(array(
+            'type'    => 'integer',
+            'message' => 'The value {{ value }} is not a valid {{ type }}.',
+        )));
+    }*/
 }

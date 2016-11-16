@@ -3,6 +3,8 @@
 namespace App\UserBundle\Controller;
 
 use App\UserBundle\Entity\Users;
+use App\UserBundle\Form\RegistrationType;
+
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -16,14 +18,15 @@ class UsersController extends Controller
      * Lists all user entities.
      *
      */
-    public function indexAction()
+    public function RegistrationAction(Request $request)
     {
-        $em = $this->getDoctrine()->getManager();
+        $users = new Users();
 
-        $users = $em->getRepository('AppUserBundle:Users')->findAll();
+        $form = $this->createForm(RegistrationType::class, $users);
+        $form->handleRequest($request);
 
         return $this->render('AppUserBundle:Users:index.html.twig', array(
-            'users' => $users,
+            'form' => $form->createView(),
         ));
     }
 
