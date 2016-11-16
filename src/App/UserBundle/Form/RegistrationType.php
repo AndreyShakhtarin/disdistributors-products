@@ -15,7 +15,23 @@ class UsersType extends AbstractType
     {
         $builder->add('name')        ;
     }
-    
+
+    public function getParent()
+    {
+        return 'FOS\UserBundle\Form\Type\RegistrationFormType';
+    }
+
+    public function getBlockPrefix()
+    {
+        return 'app_user_registration';
+    }
+
+    // For Symfony 2.x
+    public function getName()
+    {
+        return $this->getBlockPrefix();
+    }
+
     /**
      * {@inheritdoc}
      */
@@ -25,14 +41,4 @@ class UsersType extends AbstractType
             'data_class' => 'App\UserBundle\Entity\Users'
         ));
     }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getBlockPrefix()
-    {
-        return 'app_userbundle_users';
-    }
-
-
 }
