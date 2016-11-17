@@ -30,7 +30,7 @@ use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 use App\EducationBundle\Form\UserType;
-
+use App\EducationBundle\Validator\Constraints as MimeTypeValidator;
 
 /**
  * Product controller.
@@ -206,13 +206,17 @@ class ProductController extends Controller
         ));
     }
 
-    public function fileType($file)
+    public function fileType(file $file)
     {
+
         $fileType = $file->getClientMimeType();
         $types = array(
-            '/audio/' => 'app.audios_product_uploader',
-            '/video/'=> 'app.videos_product_uploader',
-            '/image/' => 'app.pictures_product_uploader'
+            '/audio/'  => 'app.audios_product_uploader',
+            '/video/'  => 'app.videos_product_uploader',
+            '/image/'  => 'app.pictures_product_uploader',
+            '/text/'   => 'app.documents_product_uploader',
+            '/pdf/'    => 'app.documents_product_uploader',
+            '/msword/' => 'app.documents_product_uploader',
         );
         foreach($types as $type=>$parameter)
         {

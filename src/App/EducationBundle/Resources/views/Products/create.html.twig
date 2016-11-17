@@ -71,7 +71,9 @@
                 {{ form_label(form.logo) }}
             </th>
             <td colspan="3">
-                {{ form_widget(form.logo) }}
+                <span class="file">
+                    {{ form_widget(form.logo) }}
+                </span>
                 {{ form_errors(form.logo) }}
             </td>
 
@@ -91,14 +93,18 @@
                 {{ form_label(form.file) }}
             </th>
             <td>
-                {{ form_widget(form.file) }}
+                <span class="file">
+                    {{ form_widget(form.file) }}
+                </span>
                 {{ form_errors(form.file) }}
             </td>
             <th>
                 {{ form_label(form.product_picture) }}
             </th>
             <td colspan="3">
-                {{ form_widget(form.product_picture) }}
+                <span class="file">
+                    {{ form_widget(form.product_picture) }}
+                </span>
                 {{ form_errors(form.product_picture) }}
             </td>
         </tr>

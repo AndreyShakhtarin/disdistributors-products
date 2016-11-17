@@ -110,4 +110,11 @@ class Image
     {
         return $this->product;
     }
+
+    public function cleaner($data)
+    {
+        $search = array(' ', '-', '_');
+        $data = str_replace($search, '', $data);
+        return $data;
+    }
 }

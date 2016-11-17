@@ -209,3 +209,7 @@
 .ml-15{
     margin-left: 15px;
 }
+
+.file {
+    max-width: 160px;
+}

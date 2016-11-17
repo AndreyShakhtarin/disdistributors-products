@@ -3,3 +3,7 @@ Symfony is great: Symfony
 security.login.username: User Name
 security.login.submit: Login
 Registration: Registration
+dollar: $
+euro: €
+ruble: P
+som: С

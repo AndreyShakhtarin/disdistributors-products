@@ -13,9 +13,20 @@
                         <img src="{{ asset('uploads/image/product_picture/') }}{{ product.productpicture }}">
                     </div>
                     <div class="s-12 m-12 l-5 padding margin-left10">
-                        <p class="padding product-desc margin-bottom"><strong>Implementer:</strong> {{ product.name }}</p>
-                        <p class="padding product-desc margin-bottom"><strong>Product:</strong> {{ product.product }}</p>
-                        <p class="padding product-desc margin-bottom"><strong>Price:</strong> {{ product.price }}</p>
+                        <p class="padding product-desc margin-bottom">
+                            <strong>Implementer:</strong>
+                            {{ product.name }}
+                        </p>
+                        <p class="padding product-desc margin-bottom">
+                            <strong>Product:</strong>
+                            {{ product.product }}
+                        </p>
+                        <p class="padding product-desc margin-bottom">
+                            <strong>Price:</strong>
+                            {{ product.price }}
+                            {{ product.currency |trans}}
+
+                        </p>
                         <p class="padding product-desc margin-bottom"><strong>Description:</strong> {{ product.description }}</p>
                     </div>
 
