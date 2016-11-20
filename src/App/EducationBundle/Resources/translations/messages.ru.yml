@@ -1,3 +1,13 @@
+#Меню навигации
+All Products: Товары
+My Store: Мой Магазин
+Add Product: Добавить товар
+Partner products: Бизнес парнеры
+logout: Выход
+#Бокавая панель
+As Table: Таблица
+As Content: Контент
+#Форма добавления Товара
 Product: Товар
 Price: Цена
 Short description: Краткое описание
@@ -23,6 +33,7 @@ security.login.username: Имя пользователя
 security.login.submit: Вход
 Registration: Регистрация
 €:
+
 dollar: $
 euro: €
 ruble: P

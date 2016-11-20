@@ -100,7 +100,7 @@ class ProductType extends AbstractType
                         new Length(
                             array(
                                 'min' => 20,
-                                'max' => 255,
+                                'max' => 100,
                                 'minMessage' => 'Описание должно не меньше {{ limit }} символов',
                                 'maxMessage' => 'Описание не может превышать {{ limit }} символов'
                             )

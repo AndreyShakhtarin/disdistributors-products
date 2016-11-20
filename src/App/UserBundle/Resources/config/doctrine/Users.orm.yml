@@ -8,7 +8,31 @@ App\UserBundle\Entity\Users:
             generator:
                 strategy: AUTO
     fields:
+            photoMerchandiser:
             name:
-                type: string
-                length: 100
-
+                requare: true
+            surname:
+                requare: true
+            middleName:
+                requare: true
+            birthday:
+                type: datetime
+                requare: true
+            location:
+                requare: true
+            country:
+                requare: true
+            city:
+                requare: true
+            adress:
+                requare: true
+            phoneNumber:
+                requare: true
+            company:
+                requare: true
+            logoCompany:
+            birthdayCompany:
+                type: datetime
+            merchandiser:
+                type: boolean
+                requare: true

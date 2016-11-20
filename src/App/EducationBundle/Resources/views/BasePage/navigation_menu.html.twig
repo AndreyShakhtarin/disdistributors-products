@@ -1,6 +1,6 @@
 <div class="top-nav s-12 l-11">
     <ul>
-        <li><a class="icon-sli-handbag" href="{{ path('app_homepage') }}"> All Products</a></li>
+        <li><a class="icon-sli-handbag" href="{{ path('app_homepage') }}"> {% trans %}All Products{% endtrans %}</a></li>
         <li>
             <a>Product</a>
             <ul>
@@ -27,10 +27,10 @@
             {% if is_granted('user_products') %}
                 <li><a href="{{ path('user_products') }}">My products</a></li>
             {% endif %}
-            <li><a class="icon-sli-wrench" href="{{ path('user_products') }}"> My Store</a></li>
+            <li><a class="icon-sli-wrench" href="{{ path('user_products') }}">{% trans %}My Store{% endtrans %}</a></li>
 
-            <li><a class="icon-sli-people "> Partner products</a></li>
-            <li><a class="" href="{{ path('product_create') }}">Create new Product</a></li>
+            <li><a class="icon-sli-people ">{% trans %}Partner products{% endtrans %}</a></li>
+            <li><a class="" href="{{ path('product_create') }}">{% trans %}Add Product{% endtrans %}</a></li>
         {% endif %}
     </ul>
     <div class="form-inline padding">

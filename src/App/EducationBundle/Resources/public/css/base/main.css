@@ -209,7 +209,30 @@
 .ml-15{
     margin-left: 15px;
 }
+.ml-15per
+{
+    margin-left: 15%;
+}
 
 .file {
     max-width: 160px;
+}
+
+.size-25 {
+    font-size: 25px;
+}
+
+.color-main-olive{
+    color: olive;
+}
+#app_user_preegistration_save
+{
+    margin-left: 18%;
+    width: 100px;
+}
+
+.custom-button
+{
+    margin-left: 50px;
+    width: 150px;
 }

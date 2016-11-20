@@ -206,6 +206,16 @@ class ProductController extends Controller
         ));
     }
 
+    public function userProductsAction($name)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $products = $em->getRepository('AppEducationBundle:Product')->findByName($name);
+        $data['products'] = $products;
+
+        $merchandiser = $em->getRepository('AppUserBundle:Users')->findOneByName($name);
+        $data['merchandiser'] = $merchandiser;
+        return $this->render('AppEducationBundle:Client/Products:user_products.html.twig',$data);
+    }
     public function fileType(file $file)
     {
 

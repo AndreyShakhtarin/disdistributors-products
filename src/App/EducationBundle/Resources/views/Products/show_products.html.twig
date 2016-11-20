@@ -29,23 +29,14 @@
                         </p>
                         <p class="padding product-desc margin-bottom"><strong>Description:</strong> {{ product.description }}</p>
                     </div>
-
-
-                    <div class="s-12 m-12 l-5 padding margin-right15 right">
-                        <div class="product-desc">
-                            <a class="margin-left5" href="{{ path('products_edit', {'token': product.token}) }}">Edit</a>
-                            <a class="margin-left5">Delete</a>
-                            <form class="inline padding">
-                                <span class="color-head-olive">Published: <input  class="" type="checkbox" name="is_published"><span>
-                                        <button type="submit"> Save</button>
-                            </form>
-
-                        </div>
-                    </div>
-
                 </section>
                 {% endfor %}
-
+                <aside class="s-12 m-4 l-3">
+                    <div class="aside-nav minimize-on-small">
+                        <p class="aside-nav-text">Sidebar navigation</p>
+                        hello
+                    </div>
+                </aside>
 
             </div>
         </div>

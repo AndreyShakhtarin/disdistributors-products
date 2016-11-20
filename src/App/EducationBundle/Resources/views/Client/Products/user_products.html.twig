@@ -1,0 +1,36 @@
+{% extends "AppEducationBundle:BasePage:base_page.html.twig"%}
+{% block content %}
+<div class="line">
+    <div class="box">
+        <div class="margin2x">
+            <!-- CONTENT -->
+            <section class="s-12 m-8 l-9 right">
+    {% for product in products %}
+        {{ product.product }}
+    {% endfor %}
+            </section>
+            <aside class=" l-5">
+                <div class="aside-nav minimize-on-small">
+                    <div class="s-12 m-12 l-5 padding margin-left10">
+                        <p class="padding product-desc margin-bottom"><strong>{% trans %}ImageUser:{% endtrans %}</strong> Name</p>
+                        <p class="padding product-desc margin-bottom"><strong>{% trans %}Name:{% endtrans %}</strong> Name</p>
+                        <p class="padding product-desc margin-bottom"><strong>{% trans %}Middle name:{% endtrans %}</strong>logo</p>
+                        <p class="padding product-desc margin-bottom"><strong>{% trans %}Last name:{% endtrans %}:</strong> Company</p>
+                        <p class="padding product-desc margin-bottom"><strong>{% trans %}Old years:{% endtrans %}:</strong> Company</p>
+                        <p class="padding product-desc margin-bottom"><strong>{% trans %}Location:{% endtrans %}:</strong> Company</p>
+                        <p class="padding product-desc margin-bottom"><strong>{% trans %}Country:{% endtrans %}:</strong> Company</p>
+                        <p class="padding product-desc margin-bottom"><strong>{% trans %}City:{% endtrans %}:</strong> Company</p>
+                        <p class="padding product-desc margin-bottom"><strong>{% trans %}Adress:{% endtrans %}:</strong> Company</p>
+                        <p class="padding product-desc margin-bottom"><strong>{% trans %}Number phone:{% endtrans %}:</strong> Company</p>
+                        <p class="padding product-desc margin-bottom"><strong>{% trans %}Email:{% endtrans %}:</strong> Company</p>
+                        <p class="padding product-desc margin-bottom"><strong>{% trans %}Company:{% endtrans %}:</strong> Company</p>
+                        <p class="padding product-desc margin-bottom"><strong>{% trans %}Logo Company:{% endtrans %}:</strong> Company</p>
+                        <p class="padding product-desc margin-bottom"><strong>{% trans %}Old years Company:{% endtrans %}:</strong> Company</p>
+                        <p class="padding product-desc margin-bottom"><strong>{% trans %}Online Chart:{% endtrans %}:</strong> Company</p>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </div>
+</div>
+{% endblock %}

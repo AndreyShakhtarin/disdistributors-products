@@ -2,7 +2,7 @@
     {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
 
         <a class="right button icon-sli-logout" href="{{ path('fos_user_security_logout') }}">
-            logout
+            {% trans %}logout{% endtrans %}
         </a>
 
     {% endif %}
@@ -37,7 +37,7 @@
         </form>
     <!-- Button trigger modal -->
     <button class="button ml-15" type="button" data-toggle="modal" data-target="#myModal" >Registration</button>
-    <a href="{{ path('app_registration') }}">registration</a>
+    <a href="{{ path('app_user_preregistration') }}">registration</a>
     <div id="myModal" class="modal fade">
         <div class="modal-dialog">
             <div class="modal-content">

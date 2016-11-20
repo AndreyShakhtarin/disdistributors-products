@@ -12,12 +12,12 @@
                                     <img class="padding" src="{{ asset('uploads/image/product_picture/') }}{{ product.productpicture }}">
                                 </a>
                                 <span>
-                                    <h4><strong>{{ product.product }}</strong> <br> EUR {{ product.price }}</h4>
+                                    <h4><strong>{{ product.product }}</strong> {{ product.price }} {{ product.currency|trans }}</h4>
                                     <div class="product-desc">
                                         {{ product.shortdescription }}
                                     </div>
                                 </span>
-                                <span><a class="button rounded-full-btn btn-link">Products {{ product.name }}</a></span><span class="button rounded-full-btn right"> Product Description</span>
+                                <span><a class="button rounded-full-btn btn-link" href="{{ path('products_user', {'name': product.name}) }}">{{ product.name }}</a></span><span class="button rounded-full-btn right"> Product Description</span>
                                 <form class="customform s-12 margin-bottom2x" action="">
                                     <div><button class="button rounded-btn submit-btn s-12" type="submit">Add to Cart</button></div>
                                 </form>
@@ -35,10 +35,6 @@
                 <!-- ASIDE NAV -->
                 {% include ('AppEducationBundle:Products:sort.html.twig') %}
             </div>
-        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-            <a href="{{ path('product_create') }}"> Создать продукт </a>
-
-        {% endif %}
         </div>
     </div>
  {% endblock %}

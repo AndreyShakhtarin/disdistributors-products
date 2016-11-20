@@ -2,6 +2,12 @@ app_user_users:
     resource: "@AppUserBundle/Resources/config/routing/users.yml"
     prefix:   /users
 
+app_user_registration:
+    path: /register/{user}
+    defaults: { _controller: "AppUserBundle:Users:register" }
 
+app_user_preregistration:
+    path: /preregistration/
+    defaults: { _controller: "AppUserBundle:Users:preRegistration" }
 
 

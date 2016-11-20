@@ -4,29 +4,92 @@ namespace App\UserBundle\Controller;
 
 use App\UserBundle\Entity\Users;
 use App\UserBundle\Form\RegistrationType;
+use App\UserBundle\Form\PreRegistrationType;
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
+use FOS\UserBundle\Controller\RegistrationController as BaseController;
+use FOS\UserBundle\Event\GetResponseUserEvent;
+use FOS\UserBundle\FOSUserEvents;
 /**
  * User controller.
  *
  */
-class UsersController extends Controller
+class UsersController extends BaseController
 {
-    /**
-     * Lists all user entities.
-     *
-     */
-    public function RegistrationAction(Request $request)
+    public function preRegistrationAction(Request $request)
     {
-        $users = new Users();
+        $user = new Users();
+        $form = $this->createForm(PreRegistrationType::class, $user);
+        $form->handleRequest($request);
+        $data['form'] = $form->createView();
+        $data['user'] = $user;
+        if($form->isSubmitted())
+        {
+            return $this->redirectToRoute('app_user_registration', ['user' => $user->getMerchandiser()]);
+        }
 
-        $form = $this->createForm(RegistrationType::class, $users);
+
+        return $this->render('AppUserBundle:Registration:preRegistration.html.twig', $data);
+    }
+
+    public function registerAction(Request $request)
+    {
+        $userRequest = $request->get('_route_params');
+        $positionClient = $userRequest['user'];
+        $users = new Users();
+        $users->setMerchandiser($users->getValueMerchandiseris($positionClient));
+        $formFactory = $this->get('fos_user.registration.form.factory');
+        /** @var $userManager UserManagerInterface */
+        $userManager = $this->get('fos_user.user_manager');
+        /** @var $dispatcher EventDispatcherInterface */
+        $dispatcher = $this->get('event_dispatcher');
+
+        $user = $userManager->createUser();
+        $user->setEnabled(false);
+
+        $event = new GetResponseUserEvent($users, $request);
+        $dispatcher->dispatch(FOSUserEvents::REGISTRATION_INITIALIZE, $event);
+
+        if (null !== $event->getResponse()) {
+            return $event->getResponse();
+        }
+
+        $form = $formFactory->createForm();
+        $form->setData($users);
+
         $form->handleRequest($request);
 
-        return $this->render('AppUserBundle:Users:index.html.twig', array(
-            'form' => $form->createView(),
+        $formUser = $this->createForm(RegistrationType::class, $users);
+        $formUser->handleRequest($request);
+
+        if ($formUser->isSubmitted()) {
+            if ($form->isValid() && $formUser->isValid()) {
+                $event = new FormEvent($formUser, $request);
+                $dispatcher->dispatch(FOSUserEvents::REGISTRATION_SUCCESS, $event);
+                $users->setMerchandiser($userRequest);
+                $userManager->updateUser($users);
+
+                if (null === $response = $event->getResponse()) {
+                    $url = $this->generateUrl('fos_user_registration_confirmed');
+                    $response = new RedirectResponse($url);
+                }
+
+                $dispatcher->dispatch(FOSUserEvents::REGISTRATION_COMPLETED, new FilterUserResponseEvent($users, $request, $response));
+
+                return $response;
+            }
+
+            $event = new FormEvent($formUser, $request);
+            $dispatcher->dispatch(FOSUserEvents::REGISTRATION_FAILURE, $event);
+
+            if (null !== $response = $event->getResponse()) {
+                return $response;
+            }
+        }
+
+        return $this->render('AppUserBundle:Registration:register.html.twig', array(
+            'form' => $formUser->createView(),
         ));
     }
 
