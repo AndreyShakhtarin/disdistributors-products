@@ -27,18 +27,5 @@
             </div>
         </form>
     <!-- Button trigger modal -->
-    <button class="button ml-15" type="button" data-toggle="modal" data-target="#myModal" >Registration</button>
-    <a href="{{ path('app_user_preregistration') }}">registration</a>
-    <div id="myModal" class="modal fade">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title text-center">Registration</h4>
-                </div>
-                <div class="modal-body"></div>
-                {% include "AppEducationBundle:Registration:register.html.twig" %}
-                <button class="button rounded-full-btn registration-submit-cancel" type="button" data-dismiss="modal">Cancel</button>
-            </div>
-        </div>
-    </div>
+    <a class="button ml-15 button-registration" style="background: none; font-size: 0.9rem;" type="button"  href="{{ path('app_user_preregistration') }}">registration</a>
 {% endif %}

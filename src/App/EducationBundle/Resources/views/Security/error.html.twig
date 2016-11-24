@@ -22,7 +22,7 @@
     {% for type, messages in app.session.flashbag.all() %}
         {% for message in messages %}
             <i  class="icon-sli-check login-success"></i>
-            <div class="flash-{{ type }}">
+            <div class="flash-{{ type }} inline">
                 {{ message }}
             </div>
         {% endfor %}
