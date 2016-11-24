@@ -1,0 +1,59 @@
+
+{% if is_granted("IS_AUTHENTICATED_REMEMBERED") == false%}
+    {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
+    <table>
+        <tbody>
+        <tr>
+            <th>
+                Username
+            </th>
+            <td>
+                {{ form_widget(form.username) }}
+                {{ form_errors(form.username) }}
+            </td>
+        </tr>
+        <tr>
+            <th>
+                Email
+            </th>
+            <td>
+                {{ form_widget(form.email) }}
+                {{ form_errors(form.email) }}
+            </td>
+        </tr>
+        <tr>
+            <th>
+                Password
+            </th>
+            <td>
+                {{ form_widget(form.plainPassword.first ) }}
+                {{ form_errors(form.plainPassword.first) }}
+            </td>
+        </tr>
+        <tr>
+            <th>
+                Cnfirm Password
+            </th>
+            <td>
+                {{ form_widget(form.plainPassword.second ) }}
+                {{ form_errors(form.plainPassword.second) }}
+            </td>
+        </tr>
+        <tr>
+            <th>
+                Name
+            </th>
+            <td>
+                {{ form_widget(form.name ) }}
+                {{ form_errors(form.name) }}
+            </td>
+        </tr>
+
+        </tbody>
+    </table>
+<div>
+    <input class="button rounded-full-btn right registration-submit-submit" type="submit" value="{{ 'Registration'|trans }}" />
+</div>
+{{ form_end(form) }}
+    hello my frends
+{% endif %}
