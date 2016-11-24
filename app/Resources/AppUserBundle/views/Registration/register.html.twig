@@ -1,59 +1,198 @@
+{% extends 'base.html.twig' %}
+{% block index %}
+    <header>
+        <div class="line">
+            <div class="box">
+                <div class="s-6 l-2">
+                    <img src="{{ asset('bundles/appeducation/shop/img/logo.png') }}">
+                </div>
+                <div class="s-12 l-8 right">
+                     <div class="margin">
+                        <form  class="customform s-12 l-8" method="get" action="http://google.com/">
+                            <div class="s-9"><input type="text" placeholder="Search form" title="Search form" /></div>
+                            <div class="s-3"><button type="submit">Search</button></div>
+                        </form>
+                        <div class="s-12 l-4">
+                            <p class="right">3 items / EUR 199</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- TOP NAV -->
+        <div class="line width-nav">
+            <nav>
+                <p class="nav-text">Main navigation</p>
+                <div class="text-center size-25 color-main-olive"> {% trans %}Registration Data{% endtrans %}</div>
+            </nav>
+        </div>
+    </header>
+    <div style="padding-left: 17px;">
+        <div class="line">
+        <!-- CONTENT -->
+            <section class="s-12 m-8 l-9">
+                        <div class="margin">
+                            {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
+                            <table>
+                                <thead class="color-head-olive">
+                                <th colspan="2">
+                                    {% trans %}Data Login{% endtrans %}
+                                </th>
+                                <th colspan="2">
+                                    {% trans %}Data User{% endtrans %}
+                                </th>
+                                <th colspan="2">
+                                    {% trans %}Data Location{% endtrans %}
+                                </th>
+                                <th colspan="2">
+                                    {% trans %}Data Compony{% endtrans %}
+                                </th>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <th>
+                                        {% trans %}Username{% endtrans %}
+                                    </th>
+                                    <td>
+                                        {{ form_widget(form.username) }}
+                                        {{ form_errors(form.username) }}
+                                    </td>
+                                    <th>
+                                        {% trans %}Name{% endtrans %}
+                                    </th>
+                                    <td>
+                                        {{ form_widget(form.name ) }}
+                                        {{ form_errors(form.name) }}
+                                    </td>
+                                    <th>
+                                        {{ form_label(form.location) }}
+                                    </th>
+                                    <td>
+                                        {{ form_widget(form.location) }}
+                                        {{ form_errors(form.location) }}
+                                    </td>
+                                    <th>
+                                        {{ form_label(form.company) }}
+                                    </th>
+                                    <td>
+                                        {{ form_widget(form.company) }}
+                                        {{ form_errors(form.company) }}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        {% trans %}Email{% endtrans %}
+                                    </th>
+                                    <td>
+                                        {{ form_widget(form.email) }}
+                                        {{ form_errors(form.email) }}
+                                    </td>
+                                    <th>
+                                        {{ form_label(form.surname) }}
+                                    </th>
+                                    <td>
+                                        {{ form_widget(form.surname) }}
+                                        {{ form_errors(form.surname) }}
+                                    </td>
+                                    <th>
+                                        {{ form_label(form.country) }}
+                                    </th>
+                                    <td>
+                                        {{ form_widget(form.country) }}
+                                        {{ form_errors(form.country) }}
+                                    </td>
+                                    <th>
+                                        {{ form_label(form.phoneNumber ) }}
+                                    </th>
+                                    <td>
+                                        {{ form_widget(form.phoneNumber) }}
+                                        {{ form_errors(form.phoneNumber) }}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        {% trans %}Password{% endtrans %}
+                                    </th>
+                                    <td>
+                                        {{ form_widget(form.plainPassword.first) }}
+                                        {{ form_errors(form.plainPassword.first) }}
+                                    </td>
+                                    <th>
+                                        {{ form_label(form.middleName) }}
+                                    </th>
+                                    <td>
+                                        {{ form_widget(form.middleName) }}
+                                        {{ form_errors(form.middleName) }}
+                                    </td>
+                                    <th>
+                                        {{ form_label(form.city) }}
+                                    </th>
+                                    <td>
+                                        {{ form_widget(form.city) }}
+                                        {{ form_errors(form.city) }}
+                                    </td>
+                                    <th>
+                                        {{ form_label(form.logoCompany) }}
+                                    </th>
+                                    <td>
+                                        {{ form_widget(form.logoCompany) }}
+                                        {{ form_errors(form.logoCompany) }}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        {% trans %}Confirm Password{% endtrans %}
+                                    </th>
+                                    <td>
+                                        {{ form_widget(form.plainPassword.second ) }}
+                                        {{ form_errors(form.plainPassword.second) }}
+                                    </td>
+                                    <th>
+                                        {{ form_label(form.birthday) }}
+                                    </th>
+                                    <td>
+                                        {{ form_widget(form.birthday) }}
+                                        {{ form_errors(form.birthday) }}
+                                    </td>
+                                    <th>
+                                        {{ form_label(form.adress) }}
+                                    </th>
+                                    <td>
+                                        {{ form_widget(form.adress) }}
+                                        {{ form_errors(form.adress) }}
+                                    </td>
+                                    <th>
+                                        {{ form_label(form.birthdayCompany) }}
+                                    </th>
+                                    <td>
+                                        {{ form_widget(form.birthdayCompany) }}
+                                        {{ form_errors(form.birthdayCompany) }}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">
+                                        <a class="button rounded-full-btn center-text custom-button" href="{{ path('app_homepage') }}">{% trans %}Back to main{% endtrans %}</a>
+                                    </td>
+                                    <th>
+                                        {{ form_label(form.photoMerchandiser) }}
+                                    </th>
+                                    <td>
+                                        {{ form_widget(form.photoMerchandiser) }}
+                                        {{ form_errors(form.photoMerchandiser) }}
+                                    </td>
+                                    <td colspan="2"></td>
+                                    <td colspan="2">
+                                        <input class="button rounded-full-btn custom-button" type="submit" value="{{ 'Registration User'|trans }}" />
+                                    </td>
+                                </tr>
 
-{% if is_granted("IS_AUTHENTICATED_REMEMBERED") == false%}
-    {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
-    <table>
-        <tbody>
-        <tr>
-            <th>
-                Username
-            </th>
-            <td>
-                {{ form_widget(form.username) }}
-                {{ form_errors(form.username) }}
-            </td>
-        </tr>
-        <tr>
-            <th>
-                Email
-            </th>
-            <td>
-                {{ form_widget(form.email) }}
-                {{ form_errors(form.email) }}
-            </td>
-        </tr>
-        <tr>
-            <th>
-                Password
-            </th>
-            <td>
-                {{ form_widget(form.plainPassword.first ) }}
-                {{ form_errors(form.plainPassword.first) }}
-            </td>
-        </tr>
-        <tr>
-            <th>
-                Cnfirm Password
-            </th>
-            <td>
-                {{ form_widget(form.plainPassword.second ) }}
-                {{ form_errors(form.plainPassword.second) }}
-            </td>
-        </tr>
-        <tr>
-            <th>
-                Name
-            </th>
-            <td>
-                {{ form_widget(form.name ) }}
-                {{ form_errors(form.name) }}
-            </td>
-        </tr>
-
-        </tbody>
-    </table>
-<div>
-    <input class="button rounded-full-btn right registration-submit-submit" type="submit" value="{{ 'Registration'|trans }}" />
-</div>
-{{ form_end(form) }}
-    hello my frends
-{% endif %}
+                                </tbody>
+                            </table>
+                        <div>
+                        </div>
+                        {{ form_end(form) }}
+                        </div>
+                    </section>
+        </div>
+    </div>
+{% endblock index %}

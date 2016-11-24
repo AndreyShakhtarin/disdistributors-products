@@ -3,7 +3,7 @@ app_user_users:
     prefix:   /users
 
 app_user_registration:
-    path: /register/{user}
+    path: /register/
     defaults: { _controller: "AppUserBundle:Users:register" }
 
 app_user_preregistration:

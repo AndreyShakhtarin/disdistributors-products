@@ -7,10 +7,13 @@ use App\UserBundle\Form\RegistrationType;
 use App\UserBundle\Form\PreRegistrationType;
 
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 
 use FOS\UserBundle\Controller\RegistrationController as BaseController;
 use FOS\UserBundle\Event\GetResponseUserEvent;
 use FOS\UserBundle\FOSUserEvents;
+use FOS\UserBundle\Event\FormEvent;
+use FOS\UserBundle\Event\FilterUserResponseEvent;
 /**
  * User controller.
  *
@@ -24,21 +27,22 @@ class UsersController extends BaseController
         $form->handleRequest($request);
         $data['form'] = $form->createView();
         $data['user'] = $user;
+        $session = $request->getSession();
+        $session->set('position', $user->getMerchandiser());
         if($form->isSubmitted())
         {
-            return $this->redirectToRoute('app_user_registration', ['user' => $user->getMerchandiser()]);
+            return $this->redirectToRoute('app_user_registration');
         }
-
-
         return $this->render('AppUserBundle:Registration:preRegistration.html.twig', $data);
     }
 
     public function registerAction(Request $request)
     {
-        $userRequest = $request->get('_route_params');
-        $positionClient = $userRequest['user'];
+        $session = $request->getSession();
+        $position = $session->get('position');
         $users = new Users();
-        $users->setMerchandiser($users->getValueMerchandiseris($positionClient));
+        $users->setMerchandiser($users->getValueMerchandiseris($position));
+
         $formFactory = $this->get('fos_user.registration.form.factory');
         /** @var $userManager UserManagerInterface */
         $userManager = $this->get('fos_user.user_manager');
@@ -46,7 +50,7 @@ class UsersController extends BaseController
         $dispatcher = $this->get('event_dispatcher');
 
         $user = $userManager->createUser();
-        $user->setEnabled(false);
+        $user->setEnabled(true);
 
         $event = new GetResponseUserEvent($users, $request);
         $dispatcher->dispatch(FOSUserEvents::REGISTRATION_INITIALIZE, $event);
@@ -55,19 +59,16 @@ class UsersController extends BaseController
             return $event->getResponse();
         }
 
-        $form = $formFactory->createForm();
-        $form->setData($users);
 
-        $form->handleRequest($request);
 
         $formUser = $this->createForm(RegistrationType::class, $users);
         $formUser->handleRequest($request);
 
         if ($formUser->isSubmitted()) {
-            if ($form->isValid() && $formUser->isValid()) {
+            if ($formUser->isValid()) {
                 $event = new FormEvent($formUser, $request);
                 $dispatcher->dispatch(FOSUserEvents::REGISTRATION_SUCCESS, $event);
-                $users->setMerchandiser($userRequest);
+                $users->setMerchandiser($position);
                 $userManager->updateUser($users);
 
                 if (null === $response = $event->getResponse()) {

@@ -7,15 +7,6 @@
 
     {% endif %}
 </div>
-{% if app.request.hasPreviousSession %}
-    {% for type, messages in app.session.flashbag.all() %}
-        {% for message in messages %}
-            <div class="flash-{{ type }}">
-                {{ message }}
-            </div>
-        {% endfor %}
-    {% endfor %}
-{% endif %}
 {% if is_granted("IS_AUTHENTICATED_REMEMBERED") == false %}
         <form class="customform left" action="{{ path("fos_user_security_check") }}" method="post">
             <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />

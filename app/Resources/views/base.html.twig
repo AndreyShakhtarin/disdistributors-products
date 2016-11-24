@@ -19,24 +19,26 @@
             <link rel="stylesheet" href="{{ asset('bundles/appeducation/shop/css/responsee.css') }}" type="text/css" media="all">
             <link rel="stylesheet" href="{{ asset('bundles/appeducation/css/base/main.css') }}" type="text/css" media="all">
         {% endblock %}
-
-
         <script type="text/javascript" src="{{ asset('bundles/appeducation/js/jquery.js') }}"></script>
-
-
         <script src="{{ asset('bundles/appeducation/shop/js/modernizr.js') }}"></script>
-
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body class="size-1280">
-
     {% block index %}
     {% endblock %}
+
+    {% trans_default_domain 'FOSUserBundle' %}
+
+    {% block fos_user_content %}
+        <p>{{ 'registration.confirmed'|trans }}</p>
+
+            <p><a href="">{{ 'registration.back'|trans }}</a></p>
+        
+    {% endblock fos_user_content %}
 
     {% block javascripts %}
         <script type="text/javascript" src="{{ asset('bundles/appeducation/js/collapse/collapse.min.js') }}"></script>
         <script src="{{ asset('bundles/appeducation/shop/js/responsee.js') }}"></script>
-
         <script src="{{ asset('bundles/appeducation/js/bootstrap.min.js') }}"></script>
     {% endblock %}
 

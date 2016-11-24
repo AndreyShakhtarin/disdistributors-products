@@ -18,7 +18,16 @@
         </div>
     {% endif %}
 {% endif %}
-
+{% if app.request.hasPreviousSession %}
+    {% for type, messages in app.session.flashbag.all() %}
+        {% for message in messages %}
+            <i  class="icon-sli-check login-success"></i>
+            <div class="flash-{{ type }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endfor %}
+{% endif %}
 {#
 {% if is_granted('IS_AUTHENTICATED_FULLY') %}
     <p>Username: {{ app.user.username }}</p>
