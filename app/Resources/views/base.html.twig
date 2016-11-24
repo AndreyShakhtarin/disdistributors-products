@@ -27,14 +27,7 @@
     {% block index %}
     {% endblock %}
 
-    {% trans_default_domain 'FOSUserBundle' %}
-
-    {% block fos_user_content %}
-        <p>{{ 'registration.confirmed'|trans }}</p>
-
-            <p><a href="">{{ 'registration.back'|trans }}</a></p>
-        
-    {% endblock fos_user_content %}
+    
 
     {% block javascripts %}
         <script type="text/javascript" src="{{ asset('bundles/appeducation/js/collapse/collapse.min.js') }}"></script>

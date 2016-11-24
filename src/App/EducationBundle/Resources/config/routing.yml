@@ -13,13 +13,6 @@ app_homepage_table:
     path:     /table
     defaults: { _controller: AppEducationBundle:BasePage:basePage }
 
-
-app_register:
-    path:     /register/
-    defaults: { _controller: AppEducationBundle:BasePage:basePage }
-app_registration:
-    path:     /register/confirmed
-    defaults: { _controller: AppEducationBundle:BasePage:basePage }
 app_login:
     path: /login
     defaults: { _controller: AppEducationBundle:BasePage:basePage }

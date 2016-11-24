@@ -41,16 +41,18 @@ class UsersController extends BaseController
         $session = $request->getSession();
         $position = $session->get('position');
         $users = new Users();
+
         $users->setMerchandiser($users->getValueMerchandiseris($position));
 
-        $formFactory = $this->get('fos_user.registration.form.factory');
-        /** @var $userManager UserManagerInterface */
+
         $userManager = $this->get('fos_user.user_manager');
         /** @var $dispatcher EventDispatcherInterface */
         $dispatcher = $this->get('event_dispatcher');
 
-        $user = $userManager->createUser();
-        $user->setEnabled(true);
+        //$users = $userManager->createUser();
+        $users->setEnabled(true);
+
+
 
         $event = new GetResponseUserEvent($users, $request);
         $dispatcher->dispatch(FOSUserEvents::REGISTRATION_INITIALIZE, $event);
@@ -68,7 +70,15 @@ class UsersController extends BaseController
             if ($formUser->isValid()) {
                 $event = new FormEvent($formUser, $request);
                 $dispatcher->dispatch(FOSUserEvents::REGISTRATION_SUCCESS, $event);
-                $users->setMerchandiser($position);
+                $username = $userManager->findUserBy(array('username' => $users->getUsername()));
+                $userEmail = $userManager->findUserBy(array('email' => $users->getEmail()));
+                if(isset($username) or isset($usermail))
+                {
+                    return $this->render('AppUserBundle:Registration:register.html.twig', array(
+                        'form' => $formUser->createView(),
+                        'user' => $users,
+                    ));
+                }
                 $userManager->updateUser($users);
 
                 if (null === $response = $event->getResponse()) {
